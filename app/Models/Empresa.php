@@ -38,6 +38,25 @@ class Empresa extends Model
         return $this->hasOne(ConfiguracionContable::class);
     }
 
+    // ── Nuevas relaciones ──────────────────────────────────────────
+
+    public function cuentasBancarias()
+    {
+        return $this->hasMany(CuentaBancaria::class);
+    }
+
+    public function movimientosCaja()
+    {
+        return $this->hasMany(MovimientoCaja::class);
+    }
+
+    public function cuentasPorCobrarPagar()
+    {
+        return $this->hasMany(CuentaPorCobrarPagar::class);
+    }
+
+    // ── Usuarios ───────────────────────────────────────────────────
+
     public function usuarios()
     {
         return $this->belongsToMany(\App\Models\User::class, 'empresa_usuario')
